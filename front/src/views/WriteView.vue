@@ -7,7 +7,10 @@ const content = ref("")
 
 
 const write = () => {
-  axios.get('http://google.com')
+  axios.post('http://localhost:8083/posts', {
+    title: title.value,
+    content: content.value
+  })
 }
 
 </script>
