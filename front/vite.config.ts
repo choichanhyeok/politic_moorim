@@ -11,5 +11,13 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  server: {
+    proxy: {
+      "/roar-api": {
+        target: "http://localhost:8083",
+        rewrite: (path) => path.replace(/^\/roar-api/, ""),
+      },
+    },
+  },
 })
